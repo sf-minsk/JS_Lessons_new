@@ -230,8 +230,8 @@ let helperObj: helperObjType = {
 
 // 3) Одной строкой установить с помощью helperObj объекту Two поле age в значение 30
 // @ts-ignore
-// helperObj.setAge.bind(Two, '30')()
-//
+helperObj.setAge.bind(Two, '30')()
+
 // // @ts-ignore
 // // helperObj.setAge.call(Two, '30')
 // // @ts-ignore
