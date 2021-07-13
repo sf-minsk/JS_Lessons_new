@@ -114,13 +114,13 @@ console.log('Lesson 5');
 
 // Task 05 есть 2 объекта One и Two. С помощью bind и метода sayHello заставьте поздороваться объект One
 // @ts-ignore
-let One = {name: 'One'};
-let Two = {
-    name: 'Two',
-    sayHello: function () {
-        console.log(`Hello, my name is ${this.name}`)
-    }
-};
+// let One = {name: 'One'};
+// let Two = {
+//     name: 'Two',
+//     sayHello: function () {
+//         console.log(`Hello, my name is ${this.name}`)
+//     }
+// };
 // //@ts-ignore
 // One.sayHello = Two.sayHello
 // @ts-ignore
@@ -135,25 +135,25 @@ let Two = {
 // можно использовать @ts-ignore
 
 
-type helperObjType = {
-    name: any
-    age: number
-    changeName: (newName:string) => void
-    setAge:  (newName:number) => void
-    greeting: () => any
-}
-
-let helperObj: helperObjType = {
-    name: 'helperObj',
-    age: 20,
-    changeName(newName:string) {
-        this.name = newName
-    },
-    setAge(newAge: number) {
-        this.age = newAge
-    },
-    greeting: Two.sayHello
-}
+// type helperObjType = {
+//     name: any
+//     age: number
+//     changeName: (newName:string) => void
+//     setAge:  (newName:number) => void
+//     greeting: () => any
+// }
+//
+// let helperObj: helperObjType = {
+//     name: 'helperObj',
+//     age: 20,
+//     changeName(newName:string) {
+//         this.name = newName
+//     },
+//     setAge(newAge: number) {
+//         this.age = newAge
+//     },
+//     greeting: Two.sayHello
+// }
 // helperObj.greeting()
 // helperObj.changeName('Alex')
 // helperObj.greeting()
@@ -164,18 +164,20 @@ let helperObj: helperObjType = {
 // возвращает другую функцию, которое также принимает число и возвращает сумму этих чисел. Замыкание использовать нельзя
 
 
-// function sumTwoNumbers(a: number, b: number): number {
-//     console.log('sumTwoNumbers function')
-//     return a + b
-// }
-// function bindNumber (func: any, num1: number) {
-//     console.log('bindNumber function')
-//     return function(num2: number) {
-//         console.log('inner function')
-//         return func(num1 ,num2)
-//     }
-// }
-// console.log(bindNumber(sumTwoNumbers, 20)(5))
+function sumTwoNumbers(a: number, b: number): number {
+    console.log('sumTwoNumbers function')
+    return a + b
+}
+function bindNumber (func: any, num1: number) {
+    console.log('bindNumber function')
+    return function(num2: number) {
+        console.log('inner function')
+        return func(num1 ,num2)
+    }
+}
+
+console.dir(sumTwoNumbers)
+console.log(bindNumber(sumTwoNumbers, 20)(5))
 
 
 // 2) Напишите функцию которая принимает первым аргументом объект One, а вторым helperObj. Данная функция
@@ -230,7 +232,7 @@ let helperObj: helperObjType = {
 
 // 3) Одной строкой установить с помощью helperObj объекту Two поле age в значение 30
 // @ts-ignore
-helperObj.setAge.bind(Two, '30')()
+// helperObj.setAge.bind(Two, '30')()
 
 // // @ts-ignore
 // // helperObj.setAge.call(Two, '30')
@@ -245,13 +247,13 @@ helperObj.setAge.bind(Two, '30')()
 // 4) Создать метод hi у объекта One, который всегда вызывает метод greeting объекта helperObj от имени Two
 
 //bind
-One.hi = helperObj.greeting.bind(One)
-// @ts-ignore
-One.hi()
-
-//call
-// @ts-ignore
-One.hi = helperObj.greeting.call(One)
+// One.hi = helperObj.greeting.bind(One)
+// // @ts-ignore
+// One.hi()
+//
+// //call
+// // @ts-ignore
+// One.hi = helperObj.greeting.call(One)
 
 
 

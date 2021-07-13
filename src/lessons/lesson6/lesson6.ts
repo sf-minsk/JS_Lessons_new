@@ -1,3 +1,5 @@
+import {dirname} from "path";
+
 console.log('Lesson 6');
 
 // Class
@@ -6,6 +8,42 @@ console.log('Lesson 6');
 // https://www.typescriptlang.org/docs/handbook/classes.html
 // https://www.youtube.com/watch?v=BASquaxab_w
 // https://www.youtube.com/watch?v=uLY9GXGMXaA
+
+// function func1() {}
+// console.dir(func1)
+// const func2 = function () {}
+// console.dir(func2)
+// const func3 = () => {}
+// console.dir(func3)
+// class func4 {}
+// console.dir(func4)
+//
+// class Test {
+//     name: string
+//     age: number
+//     constructor(name: string, age: number) {
+//         this.name = name
+//         this.age = age
+//     }
+// }
+
+
+const newObj = {
+    name: 'Alex',
+    rename(name: string) {
+        this.name = name
+    }
+}
+console.dir(newObj)
+newObj.rename('Bob')
+console.log(newObj.name)
+
+
+
+
+// @ts-ignore
+// console.log(func3.__proto__ === Function.prototype)
+
 
 // Task 01
 // Создайте структуру с именем student, содержащую поля: имя и фамилия, номер группы, успеваемость (массив из пяти элементов).
